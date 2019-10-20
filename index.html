@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body {
+            min-width: 700px;
+        }
+        .main {
+            position: relative;
+            height: 100%;
+        }
+        #left {
+            left: 0;
+            top: 0;
+            position: fixed;
+            display: block;
+            height: 100%;
+            /* width: 500px; */
+            width: 35%;
+            float: left;
+            background-image: url('../picture/2.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            overflow: hidden;
+            animation: inout 0.5s ease-in-out 0s;
+            /* z-index: 10; */
+            /* display: none; */
+        }
+        /* #left ul {
+            list-style: none;
+            height: 100%;
+            top: -100%;
+            float: left;
+            visibility: hidden;
+        } */
+        img {
+            height: 100%;
+            visibility: hidden;
+        }
+        #right {
+            display: block;
+            position: absolute;
+            background:white;
+            height: 100%;
+            width: 100%;
+            top: 100px;
+            float: right;
+        }
+        #forms {
+            position: absolute;
+            width: 550px;
+            height: 600px;
+            background: white;
+            right: 10%;
+            top: 160px;
+        }
+        #names,#pwd {
+            position: relative;
+            height: 45px;
+            width: 500px;
+            left: 25px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: 3px;
+            font-size: 20px;
+            padding-left: 4px;
+        }
+        #pwd {
+            position: relative;
+            top: 30px;
+        }
+        #tel,#telNumber {
+            position: relative;
+            top: 60px;
+            left: 25px;
+            height: 45px;
+            width: 85px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: 3px;
+            font-size: 20px;
+            padding-left: 4px;
+            margin: 0;
+        }
+        #telNumber {
+            width: 405px;
+            height: 44px;
+            margin-left: 5px;
+        }
+        #tip {
+            position: relative;
+            color: gray;
+            left: 25px;
+            top: 66px;
+        }
+        #sub {
+            margin: 0;
+            position: relative;
+            width: 500px;
+            height: 45px;
+            left: 25px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: 3px;
+            font-size: 22px;
+            top: 90px;
+            color: white;
+            background: #287eff;
+            cursor: pointer;
+        }
+        #welcomeHead {
+            color: black;
+            position: absolute;
+            width: 550px;
+            right: 10%;
+        }
+        #welcomeHead #welcome {
+            position: absolute;
+            left: 25px;
+            font-size: 48px;
+        }
+        #header {
+            position: absolute;
+            left: 25px;
+            font-size: 30px;
+            margin-top: 20px;
+            top: 60px;
+        }
+        #top {
+            font-size: 18px;
+            color: gray;
+        }
+        #top #log {
+            position: absolute;
+            left: 4px;
+            top: 4px;
+            color: black;
+            font-size: 32px;
+            z-index: 1000;
+        }
+        #top #language {
+            position: absolute;
+            right: 200px;
+            /* right: 35%; */
+            height: 100px;
+            top: 25px;
+            cursor: pointer;
+        }
+        #top #language:hover {
+            color: black;
+        }
+        #top #language #langugeChoose {
+            position: absolute;
+            /* right: 200px; */
+            /* top: 60px; */
+        }
+        #top #language ul {
+            margin-top: 10px;
+            display: none;
+        }
+        #top #language ul>li {
+            margin-top: 5px;
+            cursor: pointer;
+        }
+        #top #language ul>li:hover {
+            color: blue;
+        }
+        #top #advice {
+            position: absolute;
+            right: 80px;
+            /* right: 20%; */
+            top: 25px;
+            cursor: pointer;
+        }
+        #top #advice:hover {
+            color: black;
+        }
+        #namesTest {
+            position: absolute;
+            margin-left: 26px;
+            color: red;
+        }
+        #pwdTest {
+            position: absolute;
+            transform: translate(26px, 29px);
+            color: red;
+        }
+        #telTest {
+            position: absolute;
+            right: 26px;
+            top: 208px;
+            color: red;
+        }
+        #namesTest, #pwdTest, #telTest {
+            display: none;
+        }
+        #read {
+            position: absolute;
+            margin-left: 26px;
+            bottom: 250px;
+            color:rgba(0, 0, 0, 0.5);
+        }
+        #foot {
+            position: absolute;
+            bottom: 20px;
+            width: 550px;
+            /* margin: 0 auto; */
+            right: -250px;
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+        @media(max-width: 1000px) {
+            #left {
+                display: none;
+        }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div id="left">
+            <ul>
+                <li><img id="image" src="../picture/1.jpg" alt="error"></li>
+                <li><img id="image1" src="../picture/2.jpg" alt="error"></li>
+                <li><img id="image2" src="../picture/3.jpg" alt="error"></li>
+                <li><img id="image3" src="../picture/1.jpg" alt="error"></li>
+            </ul>
+        </div>
+        <div id="top">
+            <div id="log">QQ注册</div>
+            <div id="language">简体中文
+                <ul id="langugeChoose">
+                    <li>English</li>
+                    <li>繁体中文</li>
+                </ul>
+            </div>
+            
+            <div id="advice">意见反馈</div>
+        </div>
+        <div id="right">
+            <div id="welcomeHead">
+                <div id="welcome">欢迎注册QQ</div>
+                <div id="header">每一天，乐在沟通</div>
+            </div>
+
+            <div id="main">
+                
+                <div id="title"></div>
+                <form action="javascript:;" id="forms">
+                    <input type="text" placeholder="呢称" id="names"><p id="namesTest">2-8字符</p>
+                    <input type="text" placeholder="密码" id="pwd"><p id="pwdTest">6-18数字英文组合</p>
+                    <select name="tel" id="tel">
+                        <option value="china" checked="checked">+86</option>
+                    </select>
+                    <input type="text" placeholder="手机号码" id="telNumber">
+                    <p id="telTest">请输入正确的11位手机号码</p>
+                    <div id="tip">可通过该手机号找回密码</div>
+                    <button id="sub" type="submit">立即注册</button>
+                    <div id="read">
+                            <input type="checkbox" id="readBox">
+                            <label for="readBox" id="readText">我已阅读并同意相关服务条款和隐私政策</label>
+                    </div>
+                    <footer id="foot">date @2019.3.10</footer>
+                    <!-- <input type="reset" value="重置"> -->
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../jquery3.4.1.js"></script>
+    <script>
+        window.onload = function() {
+            // 语言选择
+            var language = document.getElementById('language');
+            var languageChoose = document.getElementById('langugeChoose');
+            
+            // 手机号码
+            var exp = /^[1][0-9]{10}$/
+            var telTest = document.getElementById('telTest')
+            var telNumber = document.getElementById('telNumber')
+            
+            // 昵称
+            var namesTest = document.getElementById('namesTest');
+            var names = document.getElementById('names');
+
+            // 密码
+            var pwdTest = document.getElementById('pwdTest');
+            var pwd = document.getElementById('pwd');
+
+            // 昵称动态验证
+            names.oninput = function() {
+                var namesLength = names.value.split('').length;
+                if(namesLength>=2 && namesLength<=8) {
+                    // namesTest.style.color = 'green'
+                    namesTest.style.display = 'none'
+                } else {
+                    // namesTest.style.color = 'red'
+                    namesTest.style.display = 'block'
+                }
+            }
+            // 密码动态验证
+            pwd.oninput = function() {
+                var pwdLength = pwd.value.split('').length;
+                if(pwdLength>=6 && pwdLength<=18) {
+                    // pwdTest.style.color = 'green'
+                    pwdTest.style.display = 'none'
+                } else {
+                    // pwdTest.style.color = 'red'
+                    pwdTest.style.display = 'block'
+                }
+            }
+            // 手机号码动态验证
+            telNumber.oninput = function() {
+                if(exp.test(telNumber.value)) {
+                    telTest.style.display = 'none'
+                } else {
+                    telTest.style.display = 'block'
+                }
+            }
+            // 语言选择
+            language.onmouseover = function() {
+                languageChoose.style.display = 'block'
+            }
+            language.onmouseout = function() {
+                languageChoose.style.display = 'none'
+            }
+            // 图片轮转
+            var image = document.getElementById('image');
+            var left = document.getElementById('left');
+            let imgNum = 0;
+            var imgArr = ["url('./1.jpg')",
+                          "url('./2.jpg')",
+                          "url('./3.jpg')"];
+            let numTemp = imgNum;
+            var opacityNum = 0;
+            setInterval(function(){
+                numTemp = numTemp%3
+                if(numTemp>2 && numTemp<0) {
+                    numTemp = 0;
+                } else{
+                    left.style.backgroundImage = imgArr[numTemp];
+                }
+                numTemp = numTemp + 1;
+                
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
